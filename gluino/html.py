@@ -137,9 +137,9 @@ def call_as_list(f,*a,**b):
         item(*a,**b)
 
 def truncate_string(text, length, dots='...'):
-    text = text.decode('utf-8')
+    #text = text.decode('utf-8')
     if len(text) > length:
-        text = text[:length - len(dots)].encode('utf-8') + dots
+        text = text[:length - len(dots)] + dots
     return text
 
 

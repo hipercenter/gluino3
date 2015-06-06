@@ -2761,19 +2761,18 @@ class SQLTABLE(TABLE):
         ):
 
         TABLE.__init__(self, **attributes)
-
+        #print(sqlrows)
         self.components = []
         self.attributes = attributes
         self.sqlrows = sqlrows
         (components, row) = (self.components, [])
         #print(sqlrows)
-        try:
-            if sqlrows:
-                pass
-            if not columns:
-                columns = sqlrows.colnames
-        except:
-                return
+
+        if len(self.sqlrows) > 0:
+            pass
+        if not columns:
+            columns = self.sqlrows.colnames
+
 
         if headers == 'fieldname:capitalize':
             headers = {}

@@ -678,11 +678,11 @@ class BaseAdapter(ConnectionPool):
         return table._id != None
 
     def adapt(self, obj):
-        print(type(obj))
+        #print(type(obj))
         obj = obj.decode('utf-8')
-        print(obj)
+        #print(obj)
         return "'%s'" % obj.replace("'", "''")
-        return obj
+        #return obj
 
     def smart_adapt(self, obj):
         if isinstance(obj,(int,float)):
@@ -10466,6 +10466,7 @@ class Rows(object):
                           row in self), rows_name)
 
         from . import sqlhtml
+        print(self)
         return sqlhtml.SQLTABLE(self).xml()
 
     def as_xml(self,row_name='row',rows_name='rows'):
