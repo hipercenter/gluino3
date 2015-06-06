@@ -1,0 +1,6 @@
+timestamp: 2015-06-06T14:41:48.777260
+CREATE TABLE person(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512)
+);
+success!
