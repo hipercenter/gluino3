@@ -908,7 +908,7 @@ def render(content="hello world",
     code = str(TemplateParser(stream.read(
     ), context=context, path=path, lexers=lexers, delimiters=delimiters, writer=writer))
     try:
-        print(code,context)
+        #print(code,context)
         exec((code), context)
     except Exception:
         # for i,line in enumerate(code.split('\n')): print i,line
