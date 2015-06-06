@@ -138,13 +138,17 @@ def call_as_list(f,*a,**b):
 
 def truncate_string(text, length, dots='...'):
     #text = text.decode('utf-8')
+
     if len(text) > length:
         text = text[:length - len(dots)] + dots
+
+    #TODO: FIX the text variable before arrives here, this is a badly workaround
     try:
-        text = text.replace('b','').replace("'","")
+        text = text.replace("b'","").replace("'","")
     except:
         pass
-    print(type(text))
+
+
     return text
 
 
