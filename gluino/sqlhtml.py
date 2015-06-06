@@ -2975,7 +2975,7 @@ class ExportClass(object):
             if value is None:
                 return '<NULL>'
             elif isinstance(value, str):
-                return value.encode('utf8')
+                return value
             elif isinstance(value, Reference):
                 return int(value)
             elif hasattr(value, 'isoformat'):
@@ -3029,18 +3029,18 @@ class ExporterTSV(ExportClass):
             import codecs
             final.write(codecs.BOM_UTF16)
             writer.writerow(
-                [str(col).encode("utf8") for col in self.rows.colnames])
-            data = out.getvalue().decode("utf8")
-            data = data.encode("utf-16")
+                [str(col) for col in self.rows.colnames])
+            data = out.getvalue()
+            #data = data.encode("utf-16")
             data = data[2:]
             final.write(data)
             out.truncate(0)
         records = self.represented()
         for row in records:
             writer.writerow(
-                [str(col).decode('utf8').encode("utf-8") for col in row])
-            data = out.getvalue().decode("utf8")
-            data = data.encode("utf-16")
+                [str(col) for col in row])
+            data = out.getvalue()
+            #data = data.encode("utf-16")
             data = data[2:]
             final.write(data)
             out.truncate(0)

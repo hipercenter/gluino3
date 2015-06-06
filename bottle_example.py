@@ -26,6 +26,7 @@ def index():
     now  = cache.ram('time',lambda:time.ctime(),10)
     return locals()
 
+
 # handle static files
 @route('/static/<filename>')
 def server_static(filename):

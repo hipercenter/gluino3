@@ -140,6 +140,11 @@ def truncate_string(text, length, dots='...'):
     #text = text.decode('utf-8')
     if len(text) > length:
         text = text[:length - len(dots)] + dots
+    try:
+        text = text.replace('b','').replace("'","")
+    except:
+        pass
+    print(type(text))
     return text
 
 
